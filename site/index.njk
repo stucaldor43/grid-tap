@@ -1,0 +1,121 @@
+---
+layout: default.njk
+activities:
+  [
+    {
+      id: 1,
+      name: "Rebecca",
+      title: "Fitness Buff",
+      imageUrl: "https://images.pexels.com/photos/1153370/pexels-photo-1153370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      avatarUrl: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    },
+    {
+      id: 2,
+      name: "Rebecca",
+      title: "Fitness Buff",
+      imageUrl: "https://images.pexels.com/photos/1153370/pexels-photo-1153370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      avatarUrl: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    },
+    {
+      id: 3,
+      name: "Rebecca",
+      title: "Fitness Buff",
+      imageUrl: "https://images.pexels.com/photos/1153370/pexels-photo-1153370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      avatarUrl: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    },
+    {
+      id: 4,
+      name: "Rebecca",
+      title: "Fitness Buff",
+      imageUrl: "https://images.pexels.com/photos/1153370/pexels-photo-1153370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      avatarUrl: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    },
+  ]
+---
+
+<div>
+  <section>
+    <div class="px-4 py-8 mx-auto my-0 max-w-screen-xl sm:space-x-4 sm:flex">
+      <div class="space-y-8 w-full lg:w-1/2">
+        <div class="text-center">
+          <h2 class="mb-4 text-4xl font-bold">
+            Find The People That Can Help Take Your Business To The Next Level
+          </h2>
+          <p>People use GridTap to turn their ideas into their reality</p>
+        </div>
+        <div class="space-y-4 sm:space-y-0 sm:flex sm:space-x-2">
+          <select
+            class="px-4 py-2 w-full sm:w-3/12 rounded-sm border-l border-b border-r border-gray-300 shadow"
+            name="influencer_category"
+          >
+            <option value="music">Music</option>
+            <option value="sports">Sports</option>
+            <option value="fitness">Fitness</option>
+          </select>
+          <input
+            class="px-4 py-2 w-full sm:w-7/12 rounded-sm border-l border-b border-r border-gray-300 shadow-md"
+            type="text"
+            placeholder="Find Influencer..."
+          />
+          <button
+            class="px-4 py-2 w-full sm:w-2/12 text-center bg-blue-500 rounded-sm"
+          >
+            {% trophy "w-4 h-4 inline"%}
+          </button>
+        </div>
+      </div>
+      <div class="hidden lg:block w-full lg:w-1/2">
+        <img
+          class="w-full max-h-72 rounded object-cover"
+          src="https://picsum.photos/800/800"
+          alt="Pic"
+        />
+      </div>
+    </div>
+  </section>
+  <section class="featuredInfluencers">
+    <div class="px-4 py-8 mx-auto my-0 max-w-screen-xl">
+      <div class="sm:flex sm:flex-wrap sm:flex-row sm:-mx-3">
+        {% for item in activities %}
+        <article class="sm:w-1/2 lg:w-1/4 sm:px-3">
+          <div>
+            <img class="w-full h-auto rounded-t" src="{{ item.imageUrl }}" />
+          </div>
+          <div class="p-4 flex space-x-4">
+            <div>
+              <img class="rounded-full w-8 h-8" src="{{ item.avatarUrl }}" />
+            </div>
+            <div class="leading-none">
+              <div class="font-semibold">{{ item.title }}</div>
+              <div>{{ item.name }}</div>
+            </div>
+          </div>
+        </article>
+        {%- endfor -%} {% for influencer in home.featuredInfluencers %}
+        <article class="sm:w-1/2 lg:w-1/4 sm:px-3">
+          <div>
+            <img
+              class="w-full h-44 rounded-t object-cover"
+              style="object-position: 50% 25%"
+              src="{{ influencer.photos.data[0].url }}"
+            />
+          </div>
+          <div class="p-4 flex space-x-4">
+            <div>
+              <img
+                class="rounded-full w-8 h-8"
+                src="{{ influencer.avatarUrl.url }}"
+              />
+            </div>
+            <div class="leading-none">
+              <div class="font-semibold">{{ influencer.title }}</div>
+              <div>{{ influencer.firstName }}</div>
+            </div>
+          </div>
+        </article>
+
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>

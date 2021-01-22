@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="text-lg">
   <head>
     <title>GridTap</title>
     <meta charset="utf-8" />
@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/main.css" />
   </head>
   <body>
-    <header></header>
-    <main>
+    {% include 'header.njk' %}
+    <main class="min-h-screen">
       {{ content | safe }}
     </main>
     <footer></footer>
