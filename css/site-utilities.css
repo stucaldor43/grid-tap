@@ -1,1 +1,7 @@
 @tailwind utilities;
+
+@media (min-width: 640px) {
+  .sm\:first\:block:nth-child(1) {
+    display: block;
+  }
+}
