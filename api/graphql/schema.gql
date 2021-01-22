@@ -1,0 +1,91 @@
+type Todo {
+  title: String!
+  completed: Boolean
+}
+
+type InfluencerImage {
+  url: String!
+  owner: Influencer! @relation
+}
+
+type Influencer {
+  createdAt: String!
+  updatedAt: String!
+  title: String!
+  firstName: String!
+  description: String!
+  avatarUrl: InfluencerImage!
+  ageRange: String!
+  gender: String!
+  maritalStatus: String!
+  country: String!
+  interests: [String!]!
+  photos: [InfluencerImage!]! @relation
+  rating: Float!
+}
+
+type AdvertiserImage {
+  url: String!
+  owner: Advertiser! @relation
+}
+
+type AdvertiserDetails {
+  companyName: String!
+  companyDescription: String!
+  companyAddress: String!
+  companyIndustry: String!
+}
+
+type Post {
+  headline: String!
+  message: String!
+  createdAt: String!
+  updatedAt: String!
+  owner: Advertiser
+}
+
+type Advertiser {
+  avatarUrl: AdvertiserImage!
+  createdAt: String!
+  updatedAt: String!
+  details: AdvertiserDetails
+  photos: [AdvertiserImage!]! @relation
+  posts: [Post!]! @relation
+  rating: Float!
+}
+
+type AdvertiserMessage {
+  sender: Advertiser!
+  receiver: Influencer!
+  text: String!
+  date: String!
+  read: Boolean!
+}
+
+type InfluencerMesage {
+  sender: Influencer!
+  receiver: Advertiser!
+  text: String!
+  date: String!
+  read: Boolean!
+}
+
+type BusinessRequest {
+  createdAt: String!
+  initiator: Advertiser
+  recipient: Influencer
+  paymentMethod: String!
+}
+
+type BusinessRelationship {
+  advertiser: Advertiser
+  influencer: Influencer
+  paymentMethod: String!
+  socialNetwork: [String!]!
+}
+
+type Query {
+  allTodos: [Todo!]
+  allInfluencers: [Influencer!]
+  todosByCompletedFlag(completed: Boolean!): [Todo!]
+}
