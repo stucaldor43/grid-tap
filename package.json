@@ -23,7 +23,7 @@
     "dev": "npm-run-all -p serve css",
     "make": "mkdir _site",
     "css-build": "parcel build js/main.js --out-dir _site",
-    "prod": "npm-run-all -s make css-build serve",
+    "prod": "npm-run-all -s make css-build start",
     "net": "netlify link"
   },
   "dependencies": {
