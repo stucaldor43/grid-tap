@@ -1,0 +1,7 @@
+[build]
+
+publish = "_site"
+
+command = "yarn dev"
+
+functions = "functions/"
